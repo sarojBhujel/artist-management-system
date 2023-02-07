@@ -1,4 +1,4 @@
-import { Link, Outlet } from "react-router-dom";
+import { Link, Navigate, Outlet } from "react-router-dom";
 
 import { Fragment, useState } from 'react'
 import { Dialog, Menu, Transition } from '@headlessui/react'
@@ -13,6 +13,7 @@ import {
 import {
     ChevronDownIcon,
 } from '@heroicons/react/20/solid'
+import { useStateContext } from "../../contexts/contextprovider";
 
 const navigation = [
     { name: 'Dashboard', href: '/', icon: HomeIcon, current: true },
@@ -30,6 +31,10 @@ function classNames(...classes) {
 
 export default function AdminLayouts() {
     const [sidebarOpen, setSidebarOpen] = useState(false)
+    const{user,token}=useStateContext()
+    if(!token){
+        return <Navigate to="/login"></Navigate>
+    }
     return (
         <div>
             <div className="min-h-full">

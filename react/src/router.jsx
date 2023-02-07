@@ -8,6 +8,7 @@ import Register from "./pages/Register"
 import Artist from "./pages/artist/Artist"
 import Albums from "./pages/albums/Albums"
 import Users from "./pages/users/Users";
+import GuestLayout from "./components/layouts/GuestLayout";
 
 const router= createBrowserRouter ([
     {
@@ -37,13 +38,20 @@ const router= createBrowserRouter ([
         ]
     },
     {
-        path:'/login',
-        element:<Login />
+        path:'/',
+        element:<GuestLayout/>,
+        children:[
+            {
+                path:'/login',
+                element:<Login />
+            },
+            {
+                path:'/register',
+                element:<Register />
+            },
+        ]
     },
-    {
-        path:'/register',
-        element:<Register />
-    },
+    
     
     {
         path:'*',

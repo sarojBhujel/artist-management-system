@@ -1,5 +1,5 @@
 <html>
-    <h4>Requirements : PHP7.4, Composer and Node.js</h4>
+    <h4>Requirements : PHP^8.0.2", Composer and Node.js</h4>
     <h4>Installation Procress</h4>
          1. Clone the repository. <br>
          2. Copy .env.example into .env and add database name and password. <br>
